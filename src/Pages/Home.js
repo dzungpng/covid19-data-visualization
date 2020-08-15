@@ -6,7 +6,7 @@ import Container from 'react-bulma-components/lib/components/container'
 import Button from 'react-bulma-components/lib/components/button'
 import Modal from 'react-bulma-components/lib/components/modal'
 
-import Subtitle from '../Images/subtitle.gif'
+import Subtitle from '../Images/subtitle2.gif'
 import {
   Compass
 } from 'react-feather'
@@ -22,18 +22,18 @@ export default function Home() {
           <Compass size={32} color='white' />
         </Button>
         <Container style={{ marginTop: '2%', marginLeft: '18%' }}>
-          <h1 style={{ color: 'white' }} className='large'>COVID-19 <br /> Data Exploration</ h1>
-          <img src={Subtitle} style={{ width: '40%', height: 'auto', marginTop: '-2%', marginLeft: '-4%' }} alt='' />
-          <br />
-          <Link to='/story' style={{textDecoration: 'none'}}>
-            <Button className='is-info is-rounded' style={{ marginTop: '5%', width: '200px' }}>
-              View the Story
-            </Button>
-          </Link>
+          <h1 style={{ color: 'white' }} className='large'>COVID-19 <br /> 3D Data Exploration</ h1>
+          <img src={Subtitle} style={{ width: '50%', height: 'auto', marginTop: '-5%', marginLeft: '-3%' }} alt='' />
           <br />
           <Link to='/visualization' style={{textDecoration: 'none'}}>
             <Button className='is-danger is-rounded' style={{ marginTop: '5%', width: '200px' }}>
               Visualize the Data
+            </Button>
+          </Link>
+          <br />
+          <Link to='/story' style={{textDecoration: 'none'}}>
+            <Button className='is-info is-rounded' style={{ marginTop: '5%', width: '200px' }}>
+              View the Story
             </Button>
           </Link>
         </Container>
