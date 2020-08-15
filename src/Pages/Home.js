@@ -26,14 +26,8 @@ export default function Home() {
           <img src={Subtitle} style={{ width: '50%', height: 'auto', marginTop: '-5%', marginLeft: '-3%' }} alt='' />
           <br />
           <Link to='/visualization' style={{textDecoration: 'none'}}>
-            <Button className='is-danger is-rounded' style={{ marginTop: '5%', width: '200px' }}>
-              Visualize the Data
-            </Button>
-          </Link>
-          <br />
-          <Link to='/story' style={{textDecoration: 'none'}}>
             <Button className='is-info is-rounded' style={{ marginTop: '5%', width: '200px' }}>
-              View the Story
+              Explore the Data
             </Button>
           </Link>
         </Container>
