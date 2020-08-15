@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Arial Black", Gadget, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +8,22 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.main-background {
+  height: 100%;
+  width: 100%;
+  /* background:linear-gradient(rgba(85, 212, 169, 0.5),transparent);
+  background-color: #06183b; */
+  background-image: url(./Images/globe.png);
+  z-index: -1;
+}
+
+.large {
+  font-size: 300%;
+  font-weight: bold;
+}
+
+.is-transparent {
+  background-color: hsl(204, 86%, 53%) !important
 }
