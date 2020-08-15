@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import Hero from 'react-bulma-components/lib/components/hero'
 import Container from 'react-bulma-components/lib/components/container'
 import Button from 'react-bulma-components/lib/components/button'
 import Modal from 'react-bulma-components/lib/components/modal'
-import Columns from 'react-bulma-components/lib/components/modal'
-import Heading from 'react-bulma-components/lib/components/modal'
 
 import Subtitle from '../Images/subtitle.gif'
 import {
@@ -26,13 +25,17 @@ export default function Home() {
           <h1 style={{ color: 'white' }} className='large'>COVID-19 <br /> Data Exploration</ h1>
           <img src={Subtitle} style={{ width: '40%', height: 'auto', marginTop: '-2%', marginLeft: '-4%' }} alt='' />
           <br />
-          <Button className='is-info is-rounded' style={{ marginTop: '5%', width: '200px' }}>
-            View the Story
-          </Button>
+          <Link to='/story' style={{textDecoration: 'none'}}>
+            <Button className='is-info is-rounded' style={{ marginTop: '5%', width: '200px' }}>
+              View the Story
+            </Button>
+          </Link>
           <br />
-          <Button className='is-danger is-rounded' style={{ marginTop: '5%', width: '200px' }}>
-            Visualize the Data
-          </Button>
+          <Link to='/visualization' style={{textDecoration: 'none'}}>
+            <Button className='is-danger is-rounded' style={{ marginTop: '5%', width: '200px' }}>
+              Visualize the Data
+            </Button>
+          </Link>
         </Container>
       </Hero>
       <Modal

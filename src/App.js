@@ -3,6 +3,8 @@ import './App.css';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 
 import Home from './Pages/Home'
+import Story from './Pages/Story'
+import Visualization from './Pages/Visualization'
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
       <Router>
         <Switch>
           <Route path='/' exact component={Home} />
+          <Route path='/story' exact component={Story} />
+          <Route path='/visualization' exact component={Visualization} />
         </Switch>
       </Router>
     </div>
