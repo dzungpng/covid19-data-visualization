@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
 import { Viewer, CzmlDataSource, ImageryLayer, CameraFlyTo } from "resium"
 import { Ion, BingMapsImageryProvider, BingMapsStyle, Cartesian3 } from 'cesium'
 import totalCases from '../Data/small_data_total.czml'
@@ -6,8 +7,10 @@ import totalDeaths from '../Data/small_data_deaths.czml'
 import totalCasesPM from '../Data/small_data_total_pm.czml'
 import totalDeathsPM from '../Data/small_data_deaths_pm.czml'
 import {
+  ArrowLeftCircle,
   Compass
 } from 'react-feather'
+import ReactTooltip from 'react-tooltip';
 
 import Box from 'react-bulma-components/lib/components/box'
 import Columns from 'react-bulma-components/lib/components/columns'
@@ -58,30 +61,61 @@ export default function Visualization() {
     }
   }
 
+
   return (
     <div>
+      <Link to='/'>
+        <Button 
+          data-tip data-for='home'
+          style={{ marginTop: '4%', marginLeft: '4%', maxWidth: '5%', position: 'absolute', zIndex: 3}} 
+          className='is-transparent-more is-text'
+        >
+          <ArrowLeftCircle size={32} color='white' />
+        </Button>
+        <ReactTooltip id='home' place='bottom' effect='solid'>
+          Go Back
+        </ReactTooltip>
+      </Link>
+        
       <Modal
         show={showModal}
         onClose={() => setShowModal(false)}
         closeOnBlur={true}
       >
-        <Modal.Content style={{color: 'white'}}>
-          <h1>INTRUCSTIONS</h1>
-          <h2>CESIUM WIDGETS</h2>
-          "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+        <Modal.Content style={{color: 'white', width: '70%',}}>
+          <h1>NAVIGATING THE APP UI</h1>
+          <h2>Cesium Widgets</h2>
+          <h3>Navigation tools:</h3>
+          Location - Topright corner<br/>
+          Functions - Tips on how to navigate the globe, zoom in and out, global zoom, "fly" to a specific location on the map.<br/>
+          <h3>Timeline tools:</h3>
+          Location - Bottom of screen<br/>
+          Functions - Play/pause button for animation, timeline slider, adjusting animation speed.<br/>
 
-          <h2>TOOLBAR</h2>
-          "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. 
+          <h2>Custom Toolbar</h2>
+          Show/hide certain types of data, fly to a location with known latitude and longitude, legends.
+
+          <h1>INSTRUCTIONS TO GET STARTED</h1>
+          Feel free to explore the data in whichever way you would like, but here is a suggestion for starting:<br />
+          1. Click to show/hide the dataset that interests you in the Custom Toolbar.<br />
+          2. Press the Play |>| button at the bottom left corner of the screen to start the animation. <br />
+          3. Watch as the data begins to show up over time on the global. Use your mouse controls to pan around (for mouse control tips, click on the question mark at the top right corner of the screen).
+          4. Click on the circles to learn more about its prepresented country's COVID-19 situation.
+
         </Modal.Content>
       </Modal>
       <Box className='is-transparent' style={toolBoxStyle}>
         <Button 
+          data-tip data-for='help'
           className='is-transparent-more is-text' 
           style={{ marginTop: '1%', marginLeft: '80%', maxWidth: '40%' }} 
           onClick={() => setShowModal(true)}
         >
           <Compass size={28} color='black' />
         </Button>
+        <ReactTooltip id='help' place='top' effect='solid'>
+          Instructions
+        </ReactTooltip>
         <Field>
           <Label>Show/Hide Data</Label>
             <Control>
