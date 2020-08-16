@@ -1,11 +1,17 @@
 import React, {useState} from 'react'
 import { Viewer, CzmlDataSource, ImageryLayer, CameraFlyTo } from "resium"
 import { Ion, BingMapsImageryProvider, BingMapsStyle, Cartesian3 } from 'cesium'
-import totalCases from '../Data/example.czml'
-import totalDeaths from '../Data/example_deaths.czml'
+import totalCases from '../Data/small_data_total.czml'
+import totalDeaths from '../Data/small_data_deaths.czml'
+import totalCasesPM from '../Data/small_data_total_pm.czml'
+import totalDeathsPM from '../Data/small_data_deaths_pm.czml'
+import {
+  Compass
+} from 'react-feather'
 
 import Box from 'react-bulma-components/lib/components/box'
 import Columns from 'react-bulma-components/lib/components/columns'
+import Modal from 'react-bulma-components/lib/components/modal'
 import Button from 'react-bulma-components/lib/components/button'
 import { Field, Control, Label, Input, Checkbox} from 'react-bulma-components/lib/components/form';
 
@@ -20,17 +26,23 @@ export default function Visualization() {
   
   const [showTotalCases, setShowTotalCases] = useState(true)
   const [showTotalDeaths, setShowTotalDeaths] = useState(false)
+  const [showTotalCasesPM, setShowTotalCasesPM] = useState(false)
+  const [showTotalDeathsPM, setShowTotalDeathsPM] = useState(false)
+
   const [customLatitude, setCustomLatitude] = useState(35)
   const [customLongitude, setCustomLongitude] = useState(104)
+  const [showModal, setShowModal] = useState(true)
 
   const toolBoxStyle = {
-    maxWidth: '20%',
+    width: '20%',
     color: 'white',
-    margin: '2% 2%'
+    top: '350px',
+    left: '75%',
+    zIndex: 2,
+    position: 'relative'
   }
 
   function onChangeLatitude(value) {
-    console.log(value)
     if (isNaN(value)) {
       setCustomLatitude(0)
     } else {
@@ -39,7 +51,6 @@ export default function Visualization() {
   }
 
   function onChangeLongitude(value) {
-    console.log(value)
     if (isNaN(value)) {
       setCustomLongitude(0)
     } else {
@@ -49,9 +60,30 @@ export default function Visualization() {
 
   return (
     <div>
+      <Modal
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        closeOnBlur={true}
+      >
+        <Modal.Content style={{color: 'white'}}>
+          <h1>INTRUCSTIONS</h1>
+          <h2>CESIUM WIDGETS</h2>
+          "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+
+          <h2>TOOLBAR</h2>
+          "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. 
+        </Modal.Content>
+      </Modal>
       <Box className='is-transparent' style={toolBoxStyle}>
+        <Button 
+          className='is-transparent-more is-text' 
+          style={{ marginTop: '1%', marginLeft: '80%', maxWidth: '40%' }} 
+          onClick={() => setShowModal(true)}
+        >
+          <Compass size={28} color='black' />
+        </Button>
         <Field>
-          <Label style={{color: 'white'}}>Show/Hide Data</Label>
+          <Label>Show/Hide Data</Label>
             <Control>
               <Checkbox 
                 name="totalCases" 
@@ -60,6 +92,7 @@ export default function Visualization() {
               >
                 Total Cases
               </Checkbox>
+              <br />
               <Checkbox 
                 name="totalDeaths" 
                 onChange={(e) => setShowTotalDeaths(e.target.checked)} 
@@ -70,7 +103,26 @@ export default function Visualization() {
             </Control>
         </Field>
         <Field>
-          <Label style={{color: 'white'}}>Custom Location</Label>
+            <Control>
+              <Checkbox 
+                name="totalCasesPM" 
+                onChange={(e) => setShowTotalCasesPM(e.target.checked)} 
+                checked={showTotalCasesPM}
+              >
+                Total Cases/Million
+              </Checkbox>
+              <br />
+              <Checkbox 
+                name="totalDeaths" 
+                onChange={(e) => setShowTotalDeathsPM(e.target.checked)} 
+                checked={showTotalDeathsPM}
+              >
+                Total Deaths/Million
+              </Checkbox>
+            </Control>
+        </Field>
+        <Field>
+          <Label>Custom Location</Label>
           <Columns>
             <Columns.Column>
               <Control>
@@ -95,7 +147,9 @@ export default function Visualization() {
           </Columns>
         </Field>
         
-        <Label style={{color: 'white', marginTop: '3%'}}>Legend</Label>
+        <Label style={{marginTop: '3%'}}>Legend (# of People)</Label>
+        <div className='gradient'></div>
+        <p style={{wordSpacing: '40px'}}>50 200 2000 3000+</p>
       </Box>
       <Viewer style={{
         position: 'absolute',
@@ -103,11 +157,13 @@ export default function Visualization() {
         left: 0,
         right: 0,
         bottom: 0,
-        zIndex: -1
+        zIndex: 1
       }}>
         <ImageryLayer imageryProvider={imageryProvider} />
         <CzmlDataSource data={totalCases} show={showTotalCases}/>
         <CzmlDataSource data={totalDeaths} show={showTotalDeaths}/>
+        <CzmlDataSource data={totalCasesPM} show={showTotalCasesPM}/>
+        <CzmlDataSource data={totalDeathsPM} show={showTotalDeathsPM}/>
         <CameraFlyTo duration={5} destination={Cartesian3.fromDegrees(customLongitude, customLatitude, 6000000)} />
       </Viewer>
     </div>

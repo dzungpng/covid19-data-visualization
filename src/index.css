@@ -28,3 +28,14 @@ code {
   background-color: rgba(255, 255, 255, .5) !important;
   font-family: 'Nunito', sans-serif;
 }
+
+.is-transparent-more {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.gradient {
+  height: 35px;
+  width: 90%;
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to right, green, yellow, orange, red); /* Standard syntax (must be last) */
+}
