@@ -2,10 +2,15 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import { Viewer, CzmlDataSource, ImageryLayer, CameraFlyTo } from "resium"
 import { Ion, BingMapsImageryProvider, BingMapsStyle, Cartesian3 } from 'cesium'
-import totalCases from '../Data/small_data_total.czml'
-import totalDeaths from '../Data/small_data_deaths.czml'
-import totalCasesPM from '../Data/small_data_total_pm.czml'
-import totalDeathsPM from '../Data/small_data_deaths_pm.czml'
+// import totalCases from '../Data/small_data_total.czml'
+// import totalDeaths from '../Data/small_data_deaths.czml'
+// import totalCasesPM from '../Data/small_data_total_pm.czml'
+// import totalDeathsPM from '../Data/small_data_deaths_pm.czml'
+import totalCases from '../Data/data_total.czml'
+import totalDeaths from '../Data/data_deaths.czml'
+import totalCasesPM from '../Data/data_total_pm.czml'
+import totalDeathsPM from '../Data/data_deaths_pm.czml'
+
 import {
   ArrowLeftCircle,
   Compass
