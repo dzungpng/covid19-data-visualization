@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/covid19-data-visualization/static/css/main.b9c2bc09.chunk.css",
-    "main.js": "/covid19-data-visualization/static/js/main.22369b98.chunk.js",
-    "main.js.map": "/covid19-data-visualization/static/js/main.22369b98.chunk.js.map",
+    "main.js": "/covid19-data-visualization/static/js/main.5e853907.chunk.js",
+    "main.js.map": "/covid19-data-visualization/static/js/main.5e853907.chunk.js.map",
     "runtime-main.js": "/covid19-data-visualization/static/js/runtime-main.40243c11.js",
     "runtime-main.js.map": "/covid19-data-visualization/static/js/runtime-main.40243c11.js.map",
     "static/css/2.e1625d90.chunk.css": "/covid19-data-visualization/static/css/2.e1625d90.chunk.css",
@@ -373,16 +373,16 @@
     "cesium/Workers/upsampleQuantizedTerrainMesh.js": "/covid19-data-visualization/cesium/Workers/upsampleQuantizedTerrainMesh.js",
     "cesium/Workers/when-54c2dc71.js": "/covid19-data-visualization/cesium/Workers/when-54c2dc71.js",
     "index.html": "/covid19-data-visualization/index.html",
-    "precache-manifest.e77d88a66b9d24e5fb743cf99bcee3ef.js": "/covid19-data-visualization/precache-manifest.e77d88a66b9d24e5fb743cf99bcee3ef.js",
+    "precache-manifest.7f444edb4d02a3d7712c732ef28f7cd7.js": "/covid19-data-visualization/precache-manifest.7f444edb4d02a3d7712c732ef28f7cd7.js",
     "service-worker.js": "/covid19-data-visualization/service-worker.js",
     "static/css/2.e1625d90.chunk.css.map": "/covid19-data-visualization/static/css/2.e1625d90.chunk.css.map",
     "static/css/main.b9c2bc09.chunk.css.map": "/covid19-data-visualization/static/css/main.b9c2bc09.chunk.css.map",
     "static/js/2.f7431fad.chunk.js.LICENSE.txt": "/covid19-data-visualization/static/js/2.f7431fad.chunk.js.LICENSE.txt",
+    "static/media/data_deaths.czml": "/covid19-data-visualization/static/media/data_deaths.b55ee623.czml",
+    "static/media/data_deaths_pm.czml": "/covid19-data-visualization/static/media/data_deaths_pm.dd7f7718.czml",
+    "static/media/data_total.czml": "/covid19-data-visualization/static/media/data_total.faf481f8.czml",
+    "static/media/data_total_pm.czml": "/covid19-data-visualization/static/media/data_total_pm.af0b37e2.czml",
     "static/media/index.css": "/covid19-data-visualization/static/media/globe2.e4fb7ce9.png",
-    "static/media/small_data_deaths.czml": "/covid19-data-visualization/static/media/small_data_deaths.6f3bf9a1.czml",
-    "static/media/small_data_deaths_pm.czml": "/covid19-data-visualization/static/media/small_data_deaths_pm.47a78e28.czml",
-    "static/media/small_data_total.czml": "/covid19-data-visualization/static/media/small_data_total.089871b8.czml",
-    "static/media/small_data_total_pm.czml": "/covid19-data-visualization/static/media/small_data_total_pm.b443d2fd.czml",
     "static/media/subtitle2.gif": "/covid19-data-visualization/static/media/subtitle2.94c01f5d.gif"
   },
   "entrypoints": [
@@ -390,6 +390,6 @@
     "static/css/2.e1625d90.chunk.css",
     "static/js/2.f7431fad.chunk.js",
     "static/css/main.b9c2bc09.chunk.css",
-    "static/js/main.22369b98.chunk.js"
+    "static/js/main.5e853907.chunk.js"
   ]
 }
